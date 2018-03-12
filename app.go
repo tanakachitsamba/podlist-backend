@@ -41,7 +41,7 @@ func main() {
 	r.HandleFunc("/post", controllers.CreatePostEndPoint).Methods("POST")
 	r.HandleFunc("/post", controllers.UpdatePostEndPoint).Methods("PUT")
 	r.HandleFunc("/post", controllers.DeletePostEndPoint).Methods("DELETE")
-	r.HandleFunc("/posts/{id}", controllers.FindPostEndPoint).Methods("GET")
+	r.HandleFunc("/post/{id}", controllers.FindPostEndPoint).Methods("GET")
 
 	if err := http.ListenAndServe(":"+port, r); err != nil {
 		log.Fatal(err)
