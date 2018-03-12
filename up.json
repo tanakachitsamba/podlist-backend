@@ -1,0 +1,26 @@
+{
+    "name": "uphoria-api",
+    "profile": "uphoria-api",
+    "regions": ["eu-west-2"],
+    "lambda": {
+        "memory": 1536
+    },
+    "env": "development",
+    "cors": {
+        "enable": true
+    },
+
+    "proxy": {
+        "command": "./server",
+        "timeout": 15,
+        "listen_timeout": 15,
+        "shutdown_timeout": 15,
+        "backoff": {
+            "min": 500,
+            "max": 1500,
+            "factor": 1.5,
+            "attempts": 5,
+            "jitter": true
+        }
+    }
+}
