@@ -1,7 +1,7 @@
 package dao
 
 import (
-	. "github.com/tanaka/uphoria/models"
+	. "github.com/tanaka/podlist-backend/models"
 	mgo "gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

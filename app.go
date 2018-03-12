@@ -8,10 +8,10 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/joho/godotenv"
-	. "github.com/tanaka/uphoria/config"
-	. "github.com/tanaka/uphoria/dao"
+	. "github.com/tanaka/podlist-backend/config"
+	. "github.com/tanaka/podlist-backend/dao"
 
-	"github.com/tanaka/uphoria/controllers"
+	"github.com/tanaka/podlist-backend/controllers"
 )
 
 var config = Config{}
@@ -30,18 +30,18 @@ func main() {
 	if port == "" {
 		log.Fatal("$PORT must be set")
 	}
+	fmt.Print(os.Getenv("PORT"))
 
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", Index).Methods("GET")
 
-	// songs
-	r.HandleFunc("/songs", controllers.AllSongsEndPoint).Methods("GET")
-	r.HandleFunc("/song", controllers.CreateSongEndPoint).Methods("POST")
-	r.HandleFunc("/song", controllers.UpdateSongEndPoint).Methods("PUT")
-	r.HandleFunc("/song", controllers.DeleteSongEndPoint).Methods("DELETE")
-	r.HandleFunc("/song/{id}", controllers.FindSongEndPoint).Methods("GET")
-
+	// Posts
+	r.HandleFunc("/posts", controllers.AllPostsEndPoint).Methods("GET")
+	r.HandleFunc("/post", controllers.CreatePostEndPoint).Methods("POST")
+	r.HandleFunc("/post", controllers.UpdatePostEndPoint).Methods("PUT")
+	r.HandleFunc("/post", controllers.DeletePostEndPoint).Methods("DELETE")
+	r.HandleFunc("/posts/{id}", controllers.FindPostEndPoint).Methods("GET")
 
 	if err := http.ListenAndServe(":"+port, r); err != nil {
 		log.Fatal(err)
