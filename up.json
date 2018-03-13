@@ -1,6 +1,6 @@
 {
-    "name": "uphoria-api",
-    "profile": "uphoria-api",
+    "name": "podlist-api",
+    "profile": "podlist-api",
     "regions": ["eu-west-2"],
     "lambda": {
         "memory": 1536
